@@ -14,6 +14,10 @@ config/name="1BitDungeonCrawler"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+EVENTS="*res://Autoload/EventBus.gd"
+
 [display]
 
 window/size/viewport_width=160

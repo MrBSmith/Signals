@@ -20,7 +20,6 @@ region = Rect2(0, 0, 9, 7)
 [node name="HUD_Button" type="TextureButton"]
 offset_right = 15.0
 offset_bottom = 14.0
-toggle_mode = true
 texture_normal = SubResource("AtlasTexture_ius7i")
 texture_pressed = SubResource("AtlasTexture_38x7f")
 stretch_mode = 3
