@@ -1,0 +1,121 @@
+[gd_scene load_steps=9 format=3 uid="uid://wnmt1gfqopgo"]
+
+[ext_resource type="Texture2D" uid="uid://cj7gsxn6o05ls" path="res://Scenes/HUD/Sprites/HUD_BG.png" id="1_4irbw"]
+[ext_resource type="Script" path="res://Scenes/HUD/HUD.gd" id="1_i3buh"]
+[ext_resource type="Texture2D" uid="uid://cipnssfwr1x25" path="res://Scenes/Character/Sprites/Portrait.png" id="2_hand3"]
+[ext_resource type="Texture2D" uid="uid://pi060ssenidt" path="res://Scenes/HUD/Sprites/JaugeSpriteSheet.png" id="3_6cbvu"]
+[ext_resource type="Texture2D" uid="uid://2pup1wk1843t" path="res://Scenes/HUD/Sprites/HP_Label.png" id="4_8ankx"]
+[ext_resource type="PackedScene" uid="uid://c2oa0reqwvk1d" path="res://Scenes/HUD/Buttons/HUD_Button.tscn" id="5_xlfio"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tb07"]
+atlas = ExtResource("3_6cbvu")
+region = Rect2(0, 0, 52, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oufx1"]
+atlas = ExtResource("3_6cbvu")
+region = Rect2(0, 11, 52, 11)
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_i3buh")
+
+[node name="HUD_Container" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Background" type="TextureRect" parent="HUD_Container"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -90.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_4irbw")
+metadata/_edit_lock_ = true
+
+[node name="Portrait" type="TextureRect" parent="HUD_Container"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.422
+anchor_top = 1.0
+anchor_right = 0.422
+anchor_bottom = 1.0
+offset_left = -12.52
+offset_top = -25.0
+offset_right = 12.48
+texture = ExtResource("2_hand3")
+
+[node name="HP" type="HBoxContainer" parent="HUD_Container"]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 72.0
+offset_right = 158.0
+offset_bottom = 83.0
+theme_override_constants/separation = 2
+metadata/_edit_lock_ = true
+
+[node name="Gauge" type="TextureProgressBar" parent="HUD_Container/HP"]
+layout_mode = 2
+max_value = 52.0
+value = 51.0
+texture_over = SubResource("AtlasTexture_4tb07")
+texture_progress = SubResource("AtlasTexture_oufx1")
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="HUD_Container/HP"]
+layout_mode = 2
+texture = ExtResource("4_8ankx")
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD_Container"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -34.0
+offset_right = 51.0
+grow_vertical = 0
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="MoveButtons" type="VBoxContainer" parent="HUD_Container/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = -6
+metadata/_edit_lock_ = true
+
+[node name="Up" parent="HUD_Container/MarginContainer/MoveButtons" instance=ExtResource("5_xlfio")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+direction = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD_Container/MarginContainer/MoveButtons"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_constants/separation = 13
+
+[node name="Left" parent="HUD_Container/MarginContainer/MoveButtons/HBoxContainer" instance=ExtResource("5_xlfio")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+direction = 2
+
+[node name="Right" parent="HUD_Container/MarginContainer/MoveButtons/HBoxContainer" instance=ExtResource("5_xlfio")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Down" parent="HUD_Container/MarginContainer/MoveButtons" instance=ExtResource("5_xlfio")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+direction = 1

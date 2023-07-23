@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1injeuysrbra"]
+[gd_scene load_steps=8 format=3 uid="uid://c1injeuysrbra"]
 
 [ext_resource type="Script" path="res://Scenes/Level/Level.gd" id="1_m4fqr"]
 [ext_resource type="Texture2D" uid="uid://bo5q1uq8v02qx" path="res://Scenes/Level/Tileset/Tileset.png" id="1_sxbsh"]
 [ext_resource type="PackedScene" uid="uid://4ensv3swlq3v" path="res://Scenes/Character/Character.tscn" id="3_xo1gg"]
+[ext_resource type="PackedScene" uid="uid://wnmt1gfqopgo" path="res://Scenes/HUD/HUD.tscn" id="4_6pgqp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0rg8c"]
 resource_name = "Walls"
@@ -65,5 +66,7 @@ layer_1/tile_data = PackedInt32Array(131085, 65537, 0, 196621, 65537, 0, 131086,
 [node name="Character" parent="." instance=ExtResource("3_xo1gg")]
 unique_name_in_owner = true
 position = Vector2(52, 44)
+
+[node name="HUD" parent="." instance=ExtResource("4_6pgqp")]
 
 [connection signal="try_moving" from="Character" to="." method="_on_character_try_moving"]

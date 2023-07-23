@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://c2oa0reqwvk1d"]
+
+[ext_resource type="Texture2D" uid="uid://buje6164ofjit" path="res://Scenes/HUD/Sprites/ButtonSpriteSheet.png" id="1_babip"]
+[ext_resource type="Script" path="res://Scenes/HUD/Buttons/HUD_Button.gd" id="2_bdkdf"]
+[ext_resource type="Texture2D" uid="uid://bco18s0bxpq1s" path="res://Scenes/HUD/Sprites/ArrowsSpriteSheet.png" id="2_hfqpe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ius7i"]
+atlas = ExtResource("1_babip")
+region = Rect2(0, 0, 15, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38x7f"]
+atlas = ExtResource("1_babip")
+region = Rect2(15, 0, 15, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_el57i"]
+resource_local_to_scene = true
+atlas = ExtResource("2_hfqpe")
+region = Rect2(0, 0, 9, 7)
+
+[node name="HUD_Button" type="TextureButton"]
+offset_right = 15.0
+offset_bottom = 14.0
+toggle_mode = true
+texture_normal = SubResource("AtlasTexture_ius7i")
+texture_pressed = SubResource("AtlasTexture_38x7f")
+stretch_mode = 3
+script = ExtResource("2_bdkdf")
+metadata/_edit_lock_ = true
+
+[node name="TopTexture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.786
+offset_bottom = -0.00399971
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_el57i")
+stretch_mode = 3
