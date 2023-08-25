@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cepcid1breyxb" path="res://Scenes/Character/Sprites/Character.png" id="1_yfw2c"]
 
 [node name="Character" type="Node2D"]
+position = Vector2(4, 4)
 script = ExtResource("1_3scwk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

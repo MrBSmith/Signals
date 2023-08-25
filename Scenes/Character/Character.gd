@@ -10,29 +10,25 @@ var input_directions = {
 	"move_right": Vector2i.RIGHT
 }
 
-@export var keys_inputs_enabled : bool = false
-
 var cell = Vector2i.ZERO
 
-signal try_moving(dest_cell: Vector2i, callback: Callable)
+signal try_moving(cell)
+
 
 func _ready() -> void:
-	EVENTS.HUD_move_character.connect(_try_moving_in_direction)
+	EVENTS.HUD_move_character.connect(try_move_to_dir)
 
 
 func _input(event: InputEvent) -> void:
-	if !keys_inputs_enabled:
-		return
-	
 	var direction = _get_input_movement_direction(event)
 	
 	if direction != Vector2i.ZERO:
-		_try_moving_in_direction(direction)
+		try_move_to_dir(direction)
 
 
-func _try_moving_in_direction(dir: Vector2i) -> void:
+func try_move_to_dir(dir: Vector2i) -> void:
 	var dest_cell = cell + dir
-	try_moving.emit(dest_cell, move.bind(dest_cell))
+	try_moving.emit(dest_cell)
 
 
 func move(dest_cell: Vector2i) -> void:

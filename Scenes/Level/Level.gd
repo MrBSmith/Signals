@@ -20,6 +20,6 @@ func is_cell_empty(cell: Vector2i) -> bool:
 	return not cell in tilemap.get_used_cells(LAYERS.WALLS)
 
 
-func _on_character_try_moving(dest_cell: Vector2i, move_callback: Callable) -> void:
-	if is_cell_empty(dest_cell):
-		move_callback.call()
+func _on_character_try_moving(cell: Vector2i) -> void:
+	if is_cell_empty(cell):
+		character.move(cell)
